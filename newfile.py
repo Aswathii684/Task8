@@ -5,19 +5,18 @@ import os
 app = Flask(__name__)
 TASKS_FILE = 'tasks.json'
 
-# Load tasks from file
+
 def load_tasks():
     if not os.path.exists(TASKS_FILE):
         return []
     with open(TASKS_FILE, 'r') as f:
         return json.load(f)
 
-# Save tasks to file
+
 def save_tasks(tasks):
     with open(TASKS_FILE, 'w') as f:
         json.dump(tasks, f)
-
-# HTML Template as a string
+        
 HTML_TEMPLATE = '''
 <!DOCTYPE html>
 <html>
